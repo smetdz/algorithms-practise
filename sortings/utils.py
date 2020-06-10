@@ -6,9 +6,10 @@ def sorting_test(sort_method: staticmethod) -> None:
     print(test_arr)
 
     try:
-        sorted_arr = sort_method(test_arr)
+        sorted_arr = sort_method(test_arr.copy())
         assert sorted_arr == sorted(test_arr)
         print(sorted_arr)
         print('Nice')
     except AssertionError:
+        print(sorted_arr)
         print('Sorting does not work')
