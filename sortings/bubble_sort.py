@@ -24,6 +24,23 @@ class BubbleSort:
 
         return array
 
+    @staticmethod
+    def shaker_sort(array: list) -> list:
+        left = 0
+        right = len(array) - 1
+        while left <= right:
+            for i in range(left, right):
+                if array[i] > array[i + 1]:
+                    array[i], array[i + 1] = array[i + 1], array[i]
+            right -= 1
+
+            for i in range(right, left, -1):
+                if array[i] < array[i - 1]:
+                    array[i], array[i - 1] = array[i - 1], array[i]
+            left += 1
+
+        return array
+
 
 if __name__ == '__main__':
     test_arr = [randint(0, 100) for _ in range(100)]
@@ -31,9 +48,10 @@ if __name__ == '__main__':
 
     b = BubbleSort()
     try:
-        sorted_arr = b.modified_sort(test_arr)
+        sorted_arr = b.shaker_sort(test_arr)
         assert sorted_arr == sorted(test_arr)
         print(sorted_arr)
         print('Nice')
     except AssertionError:
+        print(sorted_arr)
         print('Sorting does not work')
