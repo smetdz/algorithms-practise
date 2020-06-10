@@ -1,0 +1,14 @@
+from random import randint
+
+
+def sorting_test(sort_method: staticmethod) -> None:
+    test_arr = [randint(0, 100) for _ in range(100)]
+    print(test_arr)
+
+    try:
+        sorted_arr = sort_method(test_arr)
+        assert sorted_arr == sorted(test_arr)
+        print(sorted_arr)
+        print('Nice')
+    except AssertionError:
+        print('Sorting does not work')

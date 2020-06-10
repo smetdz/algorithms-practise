@@ -1,4 +1,4 @@
-from random import randint
+from utils import sorting_test
 
 
 class BubbleSort:
@@ -43,15 +43,13 @@ class BubbleSort:
 
 
 if __name__ == '__main__':
-    test_arr = [randint(0, 100) for _ in range(100)]
-    print(test_arr)
-
     b = BubbleSort()
-    try:
-        sorted_arr = b.shaker_sort(test_arr)
-        assert sorted_arr == sorted(test_arr)
-        print(sorted_arr)
-        print('Nice')
-    except AssertionError:
-        print(sorted_arr)
-        print('Sorting does not work')
+
+    print('Simple bubble sort test:')
+    sorting_test(b.sort)
+
+    print('Modified bubble sort test:')
+    sorting_test(b.modified_sort)
+
+    print('Shaker sort test:')
+    sorting_test(b.shaker_sort)
