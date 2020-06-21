@@ -4,7 +4,7 @@ from utils import sorting_test
 class CountingSort:
     @staticmethod
     def sort(arr: list) -> list:
-        counting_arr = [0 for _ in range(min(arr), max(arr) + 2)]
+        counting_arr = [0 for _ in range(0, max(arr) + 1)]
 
         for num in arr:
             counting_arr[num] += 1
